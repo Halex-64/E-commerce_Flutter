@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => UserController()),
         ChangeNotifierProvider(create: (context) => ProductController()),
       ],
-      child: const MaterialApp(
+      child:  MaterialApp(
         title: 'Ecommerce Link',
-        home: HomePage(),
+        home: const HomePage(),
+        theme: ThemeData(brightness: Brightness.dark),
         debugShowCheckedModeBanner: false,
       ),
     );

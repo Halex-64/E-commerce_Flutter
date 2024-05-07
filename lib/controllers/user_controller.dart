@@ -31,4 +31,7 @@ class UserController with ChangeNotifier {
     return users
         .firstWhere((user) => user.email == email && user.password == password);
   }
+  Future<List<ProductModel>> favoriteProductsUser(index) async {
+    return users[index].favorites;
+  }
 }
