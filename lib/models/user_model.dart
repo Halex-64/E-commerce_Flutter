@@ -22,7 +22,7 @@ class UserModel {
   void removeProduct(ProductModel product) {
     products.remove(product);
   }
-
+  
   void removeFavorite(ProductModel product) {
     if (favorites.contains(product)) {
       favorites.remove(product);

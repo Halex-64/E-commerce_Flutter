@@ -43,12 +43,19 @@ class Favorites extends StatelessWidget {
             return ListView.builder(
                 itemCount: myFavorites.length,
                 itemBuilder: (context, index) {
-                  return Text(myFavorites[index].name);
+                  return ListTile(
+                    title: Text(myFavorites[index].name),
+                    subtitle: Text(myFavorites[index].description),
+                    trailing: IconButton(
+                        onPressed: () {
+                          userProvider.removeFavorite(
+                              "choso@gmail.com.br", myFavorites[index]);
+                        },
+                        icon: const Icon(Icons.remove)),
+                  );
                 });
           }
-          return const Center(
-            child: Text('Sem Dados')
-          );
+          return const Center(child: Text('Nao possui'));
         },
       ),
     );

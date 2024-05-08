@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
               icon: const Icon(Icons.shopping_cart)),
         ],
       ),
-      body: Consumer2<ProductController, UserController>(
+      body:Consumer2<ProductController, UserController>(
           builder: (context, product, userController, child) {
         List<ProductModel> products = product.products;
         return ListView.builder(
@@ -37,6 +37,7 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               return ListTile(
                   title: Text(products[index].name),
+                  subtitle: Text(products[index].description),
                   trailing: IconButton(
                     onPressed: () {
                       ProductModel product = ProductModel(

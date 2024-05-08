@@ -22,10 +22,18 @@ class UserController with ChangeNotifier {
     }
   }
 
+  void removeFavorite(String userEmail, ProductModel product) {
+    UserModel? user = users.firstWhere((u) => u.email == userEmail,);
+    user.favorites.remove(product);
+    notifyListeners(); // Notifica os ouvintes sobre a mudança nos favoritos
+    }
+
+
   void addUser(String username, String email, String password) {
     users.add(UserModel(username: username, email: email, password: password));
     notifyListeners();
   }
+
 
   UserModel loginUser(String email, String password) {
     return users
@@ -34,4 +42,6 @@ class UserController with ChangeNotifier {
   Future<List<ProductModel>> favoriteProductsUser(index) async {
     return users[index].favorites;
   }
+
+  
 }
